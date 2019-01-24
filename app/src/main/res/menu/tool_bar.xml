@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/refresh"
+        android:title="@string/refresh"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/refresh_button" />
+
+    <item
+        android:id="@+id/more"
+        android:title="More"
+        android:icon="@drawable/menu_icon"
+        app:showAsAction="always">
+
+    <menu>
+        <group>
+            <item
+                android:id="@+id/rate_us"
+                android:icon="@drawable/rate_us"
+                android:title="@string/rate_us"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/about"
+                android:title="@string/about"
+                app:showAsAction="ifRoom" />
+        </group>
+    </menu>
+
+    </item>
+
+
+</menu>
+

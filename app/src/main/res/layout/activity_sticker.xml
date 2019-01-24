@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/preview_side_margin"
+    android:orientation="vertical"
+    tools:context="com.android.mp.wastickermaster.StickerActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/tray_image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/tray_image_content_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/sticker_pack_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pack Name" />
+
+        <TextView
+            android:id="@+id/spublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toBottomOf="@+id/sticker_pack_name"
+            tools:text="Author" />
+
+        <TextView
+            android:id="@+id/no_of_sticker_in_pack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toBottomOf="@+id/spublisher"
+            tools:text="No of Stickers" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/stickerList_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="80dp"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:requiresFadingEdge="vertical"
+            android:stretchMode="spacingWidth"
+            android:verticalSpacing="10dp"
+            android:clickable="false"
+            android:scrollbars="none"
+            android:listSelector="@color/colorPrimary">
+
+        </GridView>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0dp"
+            android:alpha="0.1"
+            android:background="#000000"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/already_added_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/sticker_pack_added_to_whatsapp"
+            android:textColor="#9B9B9B"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/add_to_whatsapp_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/btn_green"
+            android:clickable="true"
+            android:focusable="true" >
+
+            <TextView
+                style="@style/StickerPreviewButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:drawableLeft="@drawable/sticker_3rdparty_wa"
+                android:drawablePadding="8dp"
+                android:focusable="false"
+                android:text="@string/add_to_whatsapp" />
+        </FrameLayout>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
